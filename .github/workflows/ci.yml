@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           echo "Installing dependencies with npm ci (legacy peer deps)"
-          npm ci --legacy-peer-deps
+          npm install --legacy-peer-deps
       - name: Run Linter
         run: |
           echo "Running ESLint to check code quality"
