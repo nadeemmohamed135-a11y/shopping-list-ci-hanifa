@@ -17,23 +17,21 @@ jobs:
           node-version: '22.12'
           cache: 'npm'
       - name: Install dependencies
-        run: |
-          echo "Installing dependencies with npm ci (legacy peer deps)"
-          npm install --legacy-peer-deps
+        run: npm install --legacy-peer-deps
       - name: Run Linter
-        run: |
-          echo "Running ESLint to check code quality"
-          npm run lint
+        run: npm run lint
 
   test:
     runs-on: ubuntu-latest
     needs: lint
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '22.12'
+          cache: 'npm'
       - name: Install dependencies
         run: npm install --legacy-peer-deps
       - name: Run tests
