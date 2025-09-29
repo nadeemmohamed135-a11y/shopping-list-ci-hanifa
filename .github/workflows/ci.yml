@@ -9,17 +9,21 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 22
-      - name: Upgrade npm
-        run: npm install -g npm@latest
+          node-version: '22.10'
+          cache: 'npm'
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
-      - name: Lint code
-        run: npm run lint
+        run: |
+          echo "Installing dependencies with npm ci (legacy peer deps)"
+          npm ci --legacy-peer-deps
+      - name: Run Linter
+        run: |
+          echo "Running ESLint to check code quality"
+          npm run lint
 
   test:
     runs-on: ubuntu-latest
