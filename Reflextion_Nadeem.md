@@ -11,7 +11,8 @@ Ich hatte ein paar npm Probleme die ich mit hilfe von AI aber lösen konnte
 
 - Linting-Job sollte sofort nach jedem Push den Code-Stil überprüfen, damit Fehler früh erkannt werden und nicht unnötig in die weiteren Schritte gelangen.
 - Testing-Job prüft die Funktionalität mit Unit- und Komponenten-Tests (hier mit Jest und Testing Library). Dieser Schritt verhindert, dass fehlerhafte Änderungen deployed werden.
-- Mithilfe von `needs:` wurde eine logische Abfolge im Workflow geschaffen ? deployment läuft nur bei Erfolg von Linting und Testing.
+- Mithilfe von `needs:` wurde eine logische Abfolge im Workflow geschaffen 
+- ? deployment läuft nur bei Erfolg von Linting und Testing.
 - Die Installation der Dependencies ist in jedem Job notwendig, da die Jobs separat laufen und ein eigenes Environment haben.
 
 ---
